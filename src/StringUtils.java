@@ -1,10 +1,10 @@
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class StringUtils {
 
     String decodedString;
+    String codedString;
 
     String decodeFromString(String stringForDecode) {
 
@@ -203,5 +203,211 @@ public class StringUtils {
             stringForDecode = decodedString;
         }
         return decodedString;
+    }
+    String encodeToName(String encodeStringToName){
+
+        Map<String, String> specialChars = new HashMap<>();
+
+        specialChars.put(" ", "&nbsp;");
+        specialChars.put("&", "&amp;");
+        specialChars.put("£", "&pound;");
+        specialChars.put("€", "&euro;");
+        specialChars.put("¶", "&para;");
+        specialChars.put("§", "&sect;");
+        specialChars.put("®", "&reg;");
+        specialChars.put("©", "&copy;");
+        specialChars.put("™", "&trade;");
+        specialChars.put("°", "&deg;");
+        specialChars.put("±", "&plusmn;");
+        specialChars.put("¼", "&frac14;");
+        specialChars.put("½", "&frac12;");
+        specialChars.put("¾", "&frac34;");
+        specialChars.put("×", "&times;");
+        specialChars.put("÷", "&divide;");
+        specialChars.put("ƒ", "&fnof;");
+        specialChars.put("Α", "&Alpha;");
+        specialChars.put("Β", "&Beta;");
+        specialChars.put("Γ", "&Gamma;");
+        specialChars.put("Δ", "&Delta;");
+        specialChars.put("Ε", "&Epsilon;");
+        specialChars.put("Ζ", "&Zeta;");
+        specialChars.put("Η", "&Eta;");
+        specialChars.put("Θ", "&Theta;");
+        specialChars.put("Ι", "&lota;");
+        specialChars.put("\tΚ", "&Kappa;");
+        specialChars.put("Λ", "&Lambda;");
+        specialChars.put("&Mu;", "Μ");
+        specialChars.put("&Nu;", "Ν");
+        specialChars.put("&Xi;", "Ξ");
+        specialChars.put("&Omicron;", "Ο");
+        specialChars.put("&Pi;", "Π");
+        specialChars.put("&Rho;", "Ρ");
+        specialChars.put("&Sigma;", "Σ");
+        specialChars.put("&Tau;", "Τ");
+        specialChars.put("&Upsilon;", "Υ");
+        specialChars.put("&Phi;", "Φ");
+        specialChars.put("&Chi;", "Χ");
+        specialChars.put("&Psi;", "Ψ");
+        specialChars.put("&Omega;", "Ω");
+        specialChars.put("&alpha;", "α");
+        specialChars.put("&beta;", "β");
+        specialChars.put("&gamma;", "γ");
+        specialChars.put("&delta;", "δ");
+        specialChars.put("&epsilon;", "\tε");
+        specialChars.put("&zeta;", "ζ");
+        specialChars.put("&eta;", "η");
+        specialChars.put("&theta;", "θ");
+        specialChars.put("&iota;", "ι");
+        specialChars.put("&kappa;", "κ");
+        specialChars.put("&lambda;", "λ");
+        specialChars.put("&mu;", "μ");
+        specialChars.put("&nu;", "ν");
+        specialChars.put("&xi;", "ξ");
+        specialChars.put("&omicron;", "ο");
+        specialChars.put("&pi;", "π");
+        specialChars.put("&rho;", "ρ");
+        specialChars.put("&sigmaf;", "ς");
+        specialChars.put("&sigma;", "σ");
+        specialChars.put("&tau;", "τ");
+        specialChars.put("&upsilon;", "υ");
+        specialChars.put("&phi;", "φ");
+        specialChars.put("&chi;", "χ");
+        specialChars.put("&psi;", "ψ");
+        specialChars.put("&omega;", "ω");
+        specialChars.put("&larr;", "←");
+        specialChars.put("&uarr;", "↑");
+        specialChars.put("&rarr;", "→");
+        specialChars.put("&darr;", "↓");
+        specialChars.put("&harr;", "↔");
+        specialChars.put("&spades;", "♠");
+        specialChars.put("&clubs;", "♣");
+        specialChars.put("&hearts;", "♥");
+        specialChars.put("&diams;", "♦");
+        specialChars.put("&quot;", "\"");
+        specialChars.put("&lt;", "<");
+        specialChars.put("&gt;", ">");
+        specialChars.put("&hellip;", "…");
+        specialChars.put("&prime;", "′");
+        specialChars.put("&Prime;", "″");
+        specialChars.put("&ndash;", "–");
+        specialChars.put("&mdash;", "—");
+        specialChars.put("&lsquo;", "‘");
+        specialChars.put("&rsquo;", "’");
+        specialChars.put("&sbquo;", "‚");
+        specialChars.put("&ldquo;", "“");
+        specialChars.put("&rdquo;", "”");
+        specialChars.put("&bdquo;", "„");
+        specialChars.put("&laquo;", "«");
+        specialChars.put("&raquo;", "»");
+
+        for(Map.Entry<String, String> entry : specialChars.entrySet()){
+            codedString = encodeStringToName.replace(entry.getKey(), entry.getValue());
+            encodeStringToName = codedString;
+        }
+
+        return codedString;
+    }
+    String encodeToCode(String encodeStringToCode) {
+
+        Map<String, String> specialChars = new HashMap<>();
+
+        specialChars.put(" ", "&#160;");
+        specialChars.put("&", "&#38;");
+        specialChars.put("£", "&#163;");
+        specialChars.put("€", "&#8364;");
+        specialChars.put("¶", "&#182;");
+        specialChars.put("§", "&#167;");
+        specialChars.put("®", "&#174;");
+        specialChars.put("©", "&#169;");
+        specialChars.put("™", "&#8482;");
+        specialChars.put("°", "&#176;");
+        specialChars.put("±", "&#177;");
+        specialChars.put("¼", "&#188;");
+        specialChars.put("½", "&#189;");
+        specialChars.put("¾", "&#190;");
+        specialChars.put("×", "&#215;");
+        specialChars.put("÷", "&#247;");
+        specialChars.put("ƒ", "&#402;");
+        specialChars.put("Α", "&#913;");
+        specialChars.put("Β", "&#914;");
+        specialChars.put("Γ", "&#915;");
+        specialChars.put("Δ", "&#916;");
+        specialChars.put("Ε", "&#917;");
+        specialChars.put("Ζ", "&#918;");
+        specialChars.put("Η", "&#919;");
+        specialChars.put("Θ", "&#920;");
+        specialChars.put("Ι", "&#921;");
+        specialChars.put("\tΚ", "&#922;");
+        specialChars.put("Λ", "&#923;");
+        specialChars.put("Μ", "&#924;");
+        specialChars.put("Ν", "&#925;");
+        specialChars.put("Ξ", "&#926;");
+        specialChars.put("Ο", "&#927;");
+        specialChars.put("Π", "&#928;");
+        specialChars.put("Ρ", "&#929;");
+        specialChars.put("Σ", "&#931;");
+        specialChars.put("Τ", "&#932;");
+        specialChars.put("Υ", "&#933;");
+        specialChars.put("Φ", "&#934;");
+        specialChars.put("Χ", "&#935;");
+        specialChars.put("Ψ", "&#936;");
+        specialChars.put("Ω", "&#937;");
+        specialChars.put("α", "&#945;");
+        specialChars.put("β", "&#946;");
+        specialChars.put("γ", "&#947;");
+        specialChars.put("δ", "&#948;");
+        specialChars.put("\tε", "&#949;");
+        specialChars.put("ζ", "&#950;");
+        specialChars.put("η", "&#951;");
+        specialChars.put("θ", "&#952;");
+        specialChars.put("ι", "&#953;");
+        specialChars.put("κ", "&#954;");
+        specialChars.put("λ", "&#955;");
+        specialChars.put("μ", "&#956;");
+        specialChars.put("ν", "&#957;");
+        specialChars.put("ξ", "&#958;");
+        specialChars.put("ο", "&#959;");
+        specialChars.put("π", "&#960;");
+        specialChars.put("ρ", "&#961;");
+        specialChars.put("ς", "&#962;");
+        specialChars.put("σ", "&#963;");
+        specialChars.put("τ", "&#964;");
+        specialChars.put("υ", "&#965;");
+        specialChars.put("φ", "&#966;");
+        specialChars.put("χ", "&#967;");
+        specialChars.put("ψ", "&#968;");
+        specialChars.put("ω", "&#969;");
+        specialChars.put("←", "&#8592;");
+        specialChars.put("↑", "&#8593;");
+        specialChars.put("→", "&#8594;");
+        specialChars.put("↓", "&#8595;");
+        specialChars.put("↔", "&#8596;");
+        specialChars.put("♠", "&#9824");
+        specialChars.put("♣", "&#9827;");
+        specialChars.put("♥", "&#9829;");
+        specialChars.put("♦", "&#9830;");
+        specialChars.put("\"", "&#34;");
+        specialChars.put("<", "&#60;");
+        specialChars.put(">", "&#62;");
+        specialChars.put("…", "&#8230;");
+        specialChars.put("′", "&#8242;");
+        specialChars.put("″", "&#8243;");
+        specialChars.put("–", "&#8211;");
+        specialChars.put("—", "&#8212;");
+        specialChars.put("‘", "&#8216;");
+        specialChars.put("’", "&#8217;");
+        specialChars.put("‚", "&#8218;");
+        specialChars.put("“", "&#8220;");
+        specialChars.put("”", "&#8221;");
+        specialChars.put("„", "&#8222;");
+        specialChars.put("«", "&#171;");
+        specialChars.put("»", "&#187;");
+
+        for (Map.Entry<String, String> entry : specialChars.entrySet()) {
+            codedString = encodeStringToCode.replace(entry.getKey(), entry.getValue());
+            encodeStringToCode = codedString;
+        }
+
+        return codedString;
     }
 }
